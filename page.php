@@ -5,11 +5,11 @@
 	<div class="post" id="post-<?php the_ID(); ?>">
 		<h2><?php the_title(); ?></h2>
 		<div class="info">
-			<span class="date"><?php the_modified_time(__('F jS, Y', 'inove')); ?></span>
-			<?php edit_post_link(__('Edit', 'inove'), '<span class="editpost">', '</span>'); ?>
+			<span class="date"><?php the_modified_time(__('F jS, Y', 'linove')); ?></span>
+			<?php edit_post_link(__('Edit', 'linove'), '<span class="editpost">', '</span>'); ?>
 			<?php if ($comments || comments_open()) : ?>
-				<span class="addcomment"><a href="#respond"><?php _e('Leave a comment', 'inove'); ?></a></span>
-				<span class="comments"><a href="#comments"><?php _e('Go to comments', 'inove'); ?></a></span>
+				<span class="addcomment"><a href="#respond"><?php _e('Leave a comment', 'linove'); ?></a></span>
+				<span class="comments"><a href="#comments"><?php _e('Go to comments', 'linove'); ?></a></span>
 			<?php endif; ?>
 			<div class="fixed"></div>
 		</div>
@@ -23,7 +23,7 @@
 
 <?php else : ?>
 	<div class="errorbox">
-		<?php _e('Sorry, no posts matched your criteria.', 'inove'); ?>
+		<?php _e('Sorry, no posts matched your criteria.', 'linove'); ?>
 	</div>
 <?php endif; ?>
 

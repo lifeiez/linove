@@ -1,10 +1,10 @@
 <?php
 
-/** inove options */
-class iNoveOptions {
+/** linove options */
+class linoveOptions {
 
 	function getOptions() {
-		$options = get_option('inove_options');
+		$options = get_option('linove_options');
 		if (!is_array($options)) {
 			$options['google_cse'] = false;
 			$options['google_cse_cx'] = '';
@@ -35,14 +35,14 @@ class iNoveOptions {
 			$options['twitter_username'] = '';
 			$options['analytics'] = false;
 			$options['analytics_content'] = '';
-			update_option('inove_options', $options);
+			update_option('linove_options', $options);
 		}
 		return $options;
 	}
 
 	function add() {
-		if(isset($_POST['inove_save'])) {
-			$options = iNoveOptions::getOptions();
+		if(isset($_POST['linove_save'])) {
+			$options = linoveOptions::getOptions();
 
 			// google custom search engine
 			if ($_POST['google_cse']) {
@@ -171,37 +171,37 @@ class iNoveOptions {
 			}
 			$options['analytics_content'] = stripslashes($_POST['analytics_content']);
 
-			update_option('inove_options', $options);
+			update_option('linove_options', $options);
 
 		} else {
-			iNoveOptions::getOptions();
+			linoveOptions::getOptions();
 		}
 
-		add_theme_page(__('Current Theme Options', 'inove'), __('Current Theme Options', 'inove'), 'edit_themes', basename(__FILE__), array('iNoveOptions', 'display'));
+		add_theme_page(__('Current Theme Options', 'linove'), __('Current Theme Options', 'linove'), 'edit_themes', basename(__FILE__), array('linoveOptions', 'display'));
 	}
 
 	function display() {
-		$options = iNoveOptions::getOptions();
+		$options = linoveOptions::getOptions();
 ?>
 
-<form action="#" method="post" enctype="multipart/form-data" name="inove_form" id="inove_form">
+<form action="#" method="post" enctype="multipart/form-data" name="linove_form" id="linove_form">
 	<div class="wrap">
-		<h2><?php _e('Current Theme Options', 'inove'); ?></h2>
+		<h2><?php _e('Current Theme Options', 'linove'); ?></h2>
 
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Search', 'inove'); ?></th>
+					<th scope="row"><?php _e('Search', 'linove'); ?></th>
 					<td>
 						<label>
 							<input name="google_cse" type="checkbox" value="checkbox" <?php if($options['google_cse']) echo "checked='checked'"; ?> />
-							 <?php _e('Using google custom search engine.', 'inove'); ?>
+							 <?php _e('Using google custom search engine.', 'linove'); ?>
 						</label>
 						<br/>
-						<?php _e('CX:', 'inove'); ?>
+						<?php _e('CX:', 'linove'); ?>
 						 <input type="text" name="google_cse_cx" id="google_cse_cx" class="code" size="40" value="<?php echo($options['google_cse_cx']); ?>">
 						<br/>
-						<?php printf(__('Find <code>name="cx"</code> in the <strong>Search box code</strong> of <a href="%1$s">Google Custom Search Engine</a>, and type the <code>value</code> here.<br/>For example: <code>014782006753236413342:1ltfrybsbz4</code>', 'inove'), 'http://www.google.com/coop/cse/'); ?>
+						<?php printf(__('Find <code>name="cx"</code> in the <strong>Search box code</strong> of <a href="%1$s">Google Custom Search Engine</a>, and type the <code>value</code> here.<br/>For example: <code>014782006753236413342:1ltfrybsbz4</code>', 'linove'), 'http://www.google.com/coop/cse/'); ?>
 					</td>
 				</tr>
 			</tbody>
@@ -210,15 +210,15 @@ class iNoveOptions {
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Menubar', 'inove'); ?></th>
+					<th scope="row"><?php _e('Menubar', 'linove'); ?></th>
 					<td>
 						<label style="margin-right:20px;">
 							<input name="menu_type" type="radio" value="pages" <?php if($options['menu_type'] != 'categories') echo "checked='checked'"; ?> />
-							 <?php _e('Show pages as menu.', 'inove'); ?>
+							 <?php _e('Show pages as menu.', 'linove'); ?>
 						</label>
 						<label>
 							<input name="menu_type" type="radio" value="categories" <?php if($options['menu_type'] == 'categories') echo "checked='checked'"; ?> />
-							 <?php _e('Show categories as menu.', 'inove'); ?>
+							 <?php _e('Show categories as menu.', 'linove'); ?>
 						</label>
 					</td>
 				</tr>
@@ -228,11 +228,11 @@ class iNoveOptions {
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Sidebar', 'inove'); ?></th>
+					<th scope="row"><?php _e('Sidebar', 'linove'); ?></th>
 					<td>
 						<label>
 							<input name="nosidebar" type="checkbox" value="checkbox" <?php if($options['nosidebar']) echo "checked='checked'"; ?> />
-							 <?php _e('Hide sidebar from all pages.', 'inove'); ?>
+							 <?php _e('Hide sidebar from all pages.', 'linove'); ?>
 						</label>
 					</td>
 				</tr>
@@ -243,15 +243,15 @@ class iNoveOptions {
 			<tbody>
 				<tr valign="top">
 					<th scope="row">
-						<?php _e('Notice', 'inove'); ?>
+						<?php _e('Notice', 'linove'); ?>
 						<br/>
-						<small style="font-weight:normal;"><?php _e('HTML enabled', 'inove'); ?></small>
+						<small style="font-weight:normal;"><?php _e('HTML enabled', 'linove'); ?></small>
 					</th>
 					<td>
 						<!-- notice START -->
 						<label>
 							<input name="notice" type="checkbox" value="checkbox" <?php if($options['notice']) echo "checked='checked'"; ?> />
-							 <?php _e('This notice bar will display at the top of posts on homepage.', 'inove'); ?>
+							 <?php _e('This notice bar will display at the top of posts on homepage.', 'linove'); ?>
 						</label>
 						<br />
 						<label>
@@ -267,26 +267,26 @@ class iNoveOptions {
 			<tbody>
 				<tr valign="top">
 					<th scope="row">
-						<?php _e('Banner', 'inove'); ?>
+						<?php _e('Banner', 'linove'); ?>
 						<br/>
-						<small style="font-weight:normal;"><?php _e('HTML enabled', 'inove'); ?></small>
+						<small style="font-weight:normal;"><?php _e('HTML enabled', 'linove'); ?></small>
 					</th>
 					<td>
 						<!-- banner START -->
-						<?php _e('This banner will display at the right of header. (height: 60 pixels)', 'inove'); ?>
+						<?php _e('This banner will display at the right of header. (height: 60 pixels)', 'linove'); ?>
 						<br/>
-						<?php _e('Who can see?', 'inove'); ?>
+						<?php _e('Who can see?', 'linove'); ?>
 						<label style="margin-left:10px;">
 							<input name="banner_registered" type="checkbox" value="checkbox" <?php if($options['banner_registered']) echo "checked='checked'"; ?> />
-							 <?php _e('Registered Users', 'inove'); ?>
+							 <?php _e('Registered Users', 'linove'); ?>
 						</label>
 						<label style="margin-left:10px;">
 							<input name="banner_commentator" type="checkbox" value="checkbox" <?php if($options['banner_commentator']) echo "checked='checked'"; ?> />
-							 <?php _e('Commentator', 'inove'); ?>
+							 <?php _e('Commentator', 'linove'); ?>
 						</label>
 						<label style="margin-left:10px;">
 							<input name="banner_visitor" type="checkbox" value="checkbox" <?php if($options['banner_visitor']) echo "checked='checked'"; ?> />
-							 <?php _e('Visitors', 'inove'); ?>
+							 <?php _e('Visitors', 'linove'); ?>
 						</label>
 						<br/>
 						<label>
@@ -302,31 +302,31 @@ class iNoveOptions {
 			<tbody>
 				<tr valign="top">
 					<th scope="row">
-						<?php _e('Showcase', 'inove'); ?>
+						<?php _e('Showcase', 'linove'); ?>
 						<br/>
-						<small style="font-weight:normal;"><?php _e('HTML enabled', 'inove'); ?></small>
+						<small style="font-weight:normal;"><?php _e('HTML enabled', 'linove'); ?></small>
 					</th>
 					<td>
 						<!-- showcase START -->
-						<?php _e('This showcase will display at the top of sidebar.', 'inove'); ?>
+						<?php _e('This showcase will display at the top of sidebar.', 'linove'); ?>
 						<br/>
-						<?php _e('Who can see?', 'inove'); ?>
+						<?php _e('Who can see?', 'linove'); ?>
 						<label style="margin-left:10px;">
 							<input name="showcase_registered" type="checkbox" value="checkbox" <?php if($options['showcase_registered']) echo "checked='checked'"; ?> />
-							 <?php _e('Registered Users', 'inove'); ?>
+							 <?php _e('Registered Users', 'linove'); ?>
 						</label>
 						<label style="margin-left:10px;">
 							<input name="showcase_commentator" type="checkbox" value="checkbox" <?php if($options['showcase_commentator']) echo "checked='checked'"; ?> />
-							 <?php _e('Commentator', 'inove'); ?>
+							 <?php _e('Commentator', 'linove'); ?>
 						</label>
 						<label style="margin-left:10px;">
 							<input name="showcase_visitor" type="checkbox" value="checkbox" <?php if($options['showcase_visitor']) echo "checked='checked'"; ?> />
-							 <?php _e('Visitors', 'inove'); ?>
+							 <?php _e('Visitors', 'linove'); ?>
 						</label>
 						<br/>
 						<label>
 							<input name="showcase_caption" type="checkbox" value="checkbox" <?php if($options['showcase_caption']) echo "checked='checked'"; ?> />
-							 <?php _e('Title:', 'inove'); ?>
+							 <?php _e('Title:', 'linove'); ?>
 						</label>
 						 <input type="text" name="showcase_title" id="showcase_title" class="code" size="40" value="<?php echo($options['showcase_title']); ?>" />
 						<br/>
@@ -342,19 +342,19 @@ class iNoveOptions {
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Posts', 'inove'); ?></th>
+					<th scope="row"><?php _e('Posts', 'linove'); ?></th>
 					<td>
 						<label style="margin-right:20px;">
 							<input name="author" type="checkbox" value="checkbox" <?php if($options['author']) echo "checked='checked'"; ?> />
-							 <?php _e('Show author on posts.', 'inove'); ?>
+							 <?php _e('Show author on posts.', 'linove'); ?>
 						</label>
 						<label style="margin-right:20px;">
 							<input name="categories" type="checkbox" value="checkbox" <?php if($options['categories']) echo "checked='checked'"; ?> />
-							 <?php _e('Show categories on posts.', 'inove'); ?>
+							 <?php _e('Show categories on posts.', 'linove'); ?>
 						</label>
 						<label>
 							<input name="tags" type="checkbox" value="checkbox" <?php if($options['tags']) echo "checked='checked'"; ?> />
-							 <?php _e('Show tags on posts.', 'inove'); ?>
+							 <?php _e('Show tags on posts.', 'linove'); ?>
 						</label>
 					</td>
 				</tr>
@@ -364,11 +364,11 @@ class iNoveOptions {
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Comments', 'inove'); ?></th>
+					<th scope="row"><?php _e('Comments', 'linove'); ?></th>
 					<td>
 						<label>
 							<input name="ctrlentry" type="checkbox" value="checkbox" <?php if($options['ctrlentry']) echo "checked='checked'"; ?> />
-							 <?php _e('Submit comments with Ctrl+Enter.', 'inove'); ?>
+							 <?php _e('Submit comments with Ctrl+Enter.', 'linove'); ?>
 						</label>
 					</td>
 				</tr>
@@ -378,24 +378,24 @@ class iNoveOptions {
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Feed', 'inove'); ?></th>
+					<th scope="row"><?php _e('Feed', 'linove'); ?></th>
 					<td>
 						<label>
 							<input name="feed_readers" type="checkbox" value="checkbox" <?php if($options['feed_readers']) echo "checked='checked'"; ?> />
-							 <?php _e('Show the feed reader list when mouse over on feed button.', 'inove'); ?>
+							 <?php _e('Show the feed reader list when mouse over on feed button.', 'linove'); ?>
 						</label>
 						<br />
 						<label>
 							<input name="feed" type="checkbox" value="checkbox" <?php if($options['feed']) echo "checked='checked'"; ?> />
-							 <?php _e('Custom feed.', 'inove'); ?>
+							 <?php _e('Custom feed.', 'linove'); ?>
 						</label>
-						 <?php _e('URL:', 'inove'); ?> <input type="text" name="feed_url" id="feed_url" class="code" size="60" value="<?php echo($options['feed_url']); ?>">
+						 <?php _e('URL:', 'linove'); ?> <input type="text" name="feed_url" id="feed_url" class="code" size="60" value="<?php echo($options['feed_url']); ?>">
 						<br/>
 						<label>
 							<input name="feed_email" type="checkbox" value="checkbox" <?php if($options['feed_email']) echo "checked='checked'"; ?> />
-							 <?php _e('Email feed.', 'inove'); ?>
+							 <?php _e('Email feed.', 'linove'); ?>
 						</label>
-						 <?php _e('URL:', 'inove'); ?> <input type="text" name="feed_url_email" id="feed_url_email" class="code" size="60" value="<?php echo($options['feed_url_email']); ?>">
+						 <?php _e('URL:', 'linove'); ?> <input type="text" name="feed_url_email" id="feed_url_email" class="code" size="60" value="<?php echo($options['feed_url_email']); ?>">
 					</td>
 				</tr>
 			</tbody>
@@ -404,14 +404,14 @@ class iNoveOptions {
 		<table class="form-table">
 			<tbody>
 				<tr valign="top">
-					<th scope="row"><?php _e('Twitter', 'inove'); ?></th>
+					<th scope="row"><?php _e('Twitter', 'linove'); ?></th>
 					<td>
 						<label>
 							<input name="twitter" type="checkbox" value="checkbox" <?php if($options['twitter']) echo "checked='checked'"; ?> />
-							 <?php _e('Add Twitter button.', 'inove'); ?>
+							 <?php _e('Add Twitter button.', 'linove'); ?>
 						</label>
 						<br />
-						 <?php _e('Twitter username:', 'inove'); ?>
+						 <?php _e('Twitter username:', 'linove'); ?>
 						 <input type="text" name="twitter_username" id="twitter_username" class="code" size="40" value="<?php echo($options['twitter_username']); ?>">
 						<br />
 						<a href="http://twitter.com/neoease/" onclick="window.open(this.href);return false;">Follow NeoEase</a>
@@ -425,14 +425,14 @@ class iNoveOptions {
 			<tbody>
 				<tr valign="top">
 					<th scope="row">
-						<?php _e('Web Analytics', 'inove'); ?>
+						<?php _e('Web Analytics', 'linove'); ?>
 						<br/>
-						<small style="font-weight:normal;"><?php _e('HTML enabled', 'inove'); ?></small>
+						<small style="font-weight:normal;"><?php _e('HTML enabled', 'linove'); ?></small>
 					</th>
 					<td>
 						<label>
 							<input name="analytics" type="checkbox" value="checkbox" <?php if($options['analytics']) echo "checked='checked'"; ?> />
-							 <?php _e('Add web analytics code to your site. (e.g. Google Analytics, Yahoo! Web Analytics, ...)', 'inove'); ?>
+							 <?php _e('Add web analytics code to your site. (e.g. Google Analytics, Yahoo! Web Analytics, ...)', 'linove'); ?>
 						</label>
 						<label>
 							<textarea name="analytics_content" cols="50" rows="10" id="analytics_content" class="code" style="width:98%;font-size:12px;"><?php echo($options['analytics_content']); ?></textarea>
@@ -443,7 +443,7 @@ class iNoveOptions {
 		</table>
 
 		<p class="submit">
-			<input class="button-primary" type="submit" name="inove_save" value="<?php _e('Save Changes', 'inove'); ?>" />
+			<input class="button-primary" type="submit" name="linove_save" value="<?php _e('Save Changes', 'linove'); ?>" />
 		</p>
 	</div>
 </form>
@@ -476,12 +476,12 @@ class iNoveOptions {
 }
 
 // register functions
-add_action('admin_menu', array('iNoveOptions', 'add'));
+add_action('admin_menu', array('linoveOptions', 'add'));
 
 
 /** l10n */
 function theme_init(){
-	load_theme_textdomain('inove', get_template_directory() . '/languages');
+	load_theme_textdomain('linove', get_template_directory() . '/languages');
 }
 add_action ('init', 'theme_init');
 
@@ -560,23 +560,23 @@ function custom_comments($comment, $args, $depth) {
 
 		<div class="info">
 			<div class="date">
-				<?php printf( __('%1$s at %2$s', 'inove'), get_comment_time(__('F jS, Y', 'inove')), get_comment_time(__('H:i', 'inove')) ); ?>
+				<?php printf( __('%1$s at %2$s', 'linove'), get_comment_time(__('F jS, Y', 'linove')), get_comment_time(__('H:i', 'linove')) ); ?>
 					 | <a href="#comment-<?php comment_ID() ?>"><?php printf('#%1$s', ++$commentcount); ?></a>
 			</div>
 			<div class="act">
-				<a href="javascript:void(0);" onclick="MGJS_CMT.reply('commentauthor-<?php comment_ID() ?>', 'comment-<?php comment_ID() ?>', 'comment');"><?php _e('Reply', 'inove'); ?></a> | 
-				<a href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-<?php comment_ID() ?>', 'comment-<?php comment_ID() ?>', 'commentbody-<?php comment_ID() ?>', 'comment');"><?php _e('Quote', 'inove'); ?></a>
+				<a href="javascript:void(0);" onclick="MGJS_CMT.reply('commentauthor-<?php comment_ID() ?>', 'comment-<?php comment_ID() ?>', 'comment');"><?php _e('Reply', 'linove'); ?></a> | 
+				<a href="javascript:void(0);" onclick="MGJS_CMT.quote('commentauthor-<?php comment_ID() ?>', 'comment-<?php comment_ID() ?>', 'commentbody-<?php comment_ID() ?>', 'comment');"><?php _e('Quote', 'linove'); ?></a>
 				<?php
 					if (function_exists("qc_comment_edit_link")) {
-						qc_comment_edit_link('', ' | ', '', __('Edit', 'inove'));
+						qc_comment_edit_link('', ' | ', '', __('Edit', 'linove'));
 					}
-					edit_comment_link(__('Advanced edit', 'inove'), ' | ', '');
+					edit_comment_link(__('Advanced edit', 'linove'), ' | ', '');
 				?>
 			</div>
 			<div class="fixed"></div>
 			<div class="content">
 				<?php if ($comment->comment_approved == '0') : ?>
-					<p><small><?php _e('Your comment is awaiting moderation.', 'inove'); ?></small></p>
+					<p><small><?php _e('Your comment is awaiting moderation.', 'linove'); ?></small></p>
 				<?php endif; ?>
 
 				<div id="commentbody-<?php comment_ID() ?>">

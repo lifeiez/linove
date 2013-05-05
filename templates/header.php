@@ -26,7 +26,7 @@
 <div id="navigation">
 	<!-- menus START -->
 	<ul id="menus">
-		<li class="<?php echo($home_menu); ?>"><a class="home" title="<?php _e('Home', 'inove'); ?>" href="<?php echo get_settings('home'); ?>/"><?php _e('Home', 'inove'); ?></a></li>
+		<li class="<?php echo($home_menu); ?>"><a class="home" title="<?php _e('Home', 'linove'); ?>" href="<?php echo get_settings('home'); ?>/"><?php _e('Home', 'linove'); ?></a></li>
 		<?php
 			if($options['menu_type'] == 'categories') {
 				wp_list_categories('title_li=0&orderby=name&show_count=0');
@@ -63,7 +63,7 @@
 	var searchbox = MGJS.$("searchbox");
 	var searchtxt = MGJS.getElementsByClassName("textfield", "input", searchbox)[0];
 	var searchbtn = MGJS.getElementsByClassName("button", "input", searchbox)[0];
-	var tiptext = "<?php _e('Type text to search here...', 'inove'); ?>";
+	var tiptext = "<?php _e('Type text to search here...', 'linove'); ?>";
 	if(searchtxt.value == "" || searchtxt.value == tiptext) {
 		searchtxt.className += " searchtip";
 		searchtxt.value = tiptext;

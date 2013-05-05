@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <?php
-	global $inove_nosidebar;
-	$options = get_option('inove_options');
+	global $linove_nosidebar;
+	$options = get_option('linove_options');
 	if (is_home()) {
 		$home_menu = 'current_page_item';
 	} else {
@@ -24,8 +24,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 
 	<title><?php bloginfo('name'); ?><?php wp_title(); ?></title>
-	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all posts', 'inove'); ?>" href="<?php echo $feed; ?>" />
-	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all comments', 'inove'); ?>" href="<?php bloginfo('comments_rss2_url'); ?>" />
+	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all posts', 'linove'); ?>" href="<?php echo $feed; ?>" />
+	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all comments', 'linove'); ?>" href="<?php bloginfo('comments_rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<!-- style START -->
@@ -57,7 +57,7 @@
 <div id="wrap">
 
 <!-- container START -->
-<div id="container" <?php if($options['nosidebar'] || $inove_nosidebar){echo 'class="one-column"';} ?> >
+<div id="container" <?php if($options['nosidebar'] || $linove_nosidebar){echo 'class="one-column"';} ?> >
 
 <?php include('templates/header.php'); ?>
 

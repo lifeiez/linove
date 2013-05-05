@@ -1,5 +1,5 @@
 <?php
-	$options = get_option('inove_options');
+	$options = get_option('linove_options');
 
 	if($options['feed'] && $options['feed_url']) {
 		if (substr(strtoupper($options['feed_url']), 0, 7) == 'HTTP://') {
@@ -22,24 +22,24 @@
 	<div class="widget widget_feeds">
 		<div class="content">
 			<div id="subscribe">
-				<a rel="external nofollow" id="feedrss" title="<?php _e('Subscribe to this blog...', 'inove'); ?>" href="<?php echo $feed; ?>"><?php _e('<abbr title="Really Simple Syndication">RSS</abbr>', 'inove'); ?></a>
+				<a rel="external nofollow" id="feedrss" title="<?php _e('Subscribe to this blog...', 'linove'); ?>" href="<?php echo $feed; ?>"><?php _e('<abbr title="Really Simple Syndication">RSS</abbr>', 'linove'); ?></a>
 				<?php if($options['feed_readers']) : ?>
 					<ul id="feed_readers">
-						<li id="google_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Google', 'inove'); ?>" href="http://fusion.google.com/add?feedurl=<?php echo $feed; ?>"><span><?php _e('Google', 'inove'); ?></span></a></li>
-						<li id="youdao_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Youdao', 'inove'); ?>" href="http://reader.youdao.com/#url=<?php echo $feed; ?>"><span><?php _e('Youdao', 'inove'); ?></span></a></li>
-						<li id="xianguo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Xian Guo', 'inove'); ?>" href="http://www.xianguo.com/subscribe.php?url=<?php echo $feed; ?>"><span><?php _e('Xian Guo', 'inove'); ?></span></a></li>
-						<li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Zhua Xia', 'inove'); ?>" href="http://www.zhuaxia.com/add_channel.php?url=<?php echo $feed; ?>"><span><?php _e('Zhua Xia', 'inove'); ?></span></a></li>
-						<li id="yahoo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('My Yahoo!', 'inove'); ?>"	href="http://add.my.yahoo.com/rss?url=<?php echo $feed; ?>"><span><?php _e('My Yahoo!', 'inove'); ?></span></a></li>
-						<li id="newsgator_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('newsgator', 'inove'); ?>"	href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=<?php echo $feed; ?>"><span><?php _e('newsgator', 'inove'); ?></span></a></li>
-						<li id="bloglines_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Bloglines', 'inove'); ?>"	href="http://www.bloglines.com/sub/<?php echo $feed; ?>"><span><?php _e('Bloglines', 'inove'); ?></span></a></li>
-						<li id="inezha_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('iNezha', 'inove'); ?>"	href="http://inezha.com/add?url=<?php echo $feed; ?>"><span><?php _e('iNezha', 'inove'); ?></span></a></li>
+						<li id="google_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Google', 'linove'); ?>" href="http://fusion.google.com/add?feedurl=<?php echo $feed; ?>"><span><?php _e('Google', 'linove'); ?></span></a></li>
+						<li id="youdao_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Youdao', 'linove'); ?>" href="http://reader.youdao.com/#url=<?php echo $feed; ?>"><span><?php _e('Youdao', 'linove'); ?></span></a></li>
+						<li id="xianguo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Xian Guo', 'linove'); ?>" href="http://www.xianguo.com/subscribe.php?url=<?php echo $feed; ?>"><span><?php _e('Xian Guo', 'linove'); ?></span></a></li>
+						<li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Zhua Xia', 'linove'); ?>" href="http://www.zhuaxia.com/add_channel.php?url=<?php echo $feed; ?>"><span><?php _e('Zhua Xia', 'linove'); ?></span></a></li>
+						<li id="yahoo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('My Yahoo!', 'linove'); ?>"	href="http://add.my.yahoo.com/rss?url=<?php echo $feed; ?>"><span><?php _e('My Yahoo!', 'linove'); ?></span></a></li>
+						<li id="newsgator_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('newsgator', 'linove'); ?>"	href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=<?php echo $feed; ?>"><span><?php _e('newsgator', 'linove'); ?></span></a></li>
+						<li id="bloglines_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Bloglines', 'linove'); ?>"	href="http://www.bloglines.com/sub/<?php echo $feed; ?>"><span><?php _e('Bloglines', 'linove'); ?></span></a></li>
+						<li id="inezha_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('iNezha', 'linove'); ?>"	href="http://inezha.com/add?url=<?php echo $feed; ?>"><span><?php _e('iNezha', 'linove'); ?></span></a></li>
 					</ul>
 				<?php endif; ?>
 			</div>
 			<?php if($options['feed_email'] && $options['feed_url_email']) : ?>
-				<a rel="external nofollow" id="feedemail" title="<?php _e('Subscribe to this blog via email...', 'inove'); ?>" href="<?php echo $options['feed_url_email']; ?>"><?php _e('Email feed', 'inove'); ?></a>
+				<a rel="external nofollow" id="feedemail" title="<?php _e('Subscribe to this blog via email...', 'linove'); ?>" href="<?php echo $options['feed_url_email']; ?>"><?php _e('Email feed', 'linove'); ?></a>
 			<?php endif; if($options['twitter'] && $options['twitter_username']) : ?>
-				<a id="followme" title="<?php _e('Follow me!', 'inove'); ?>" href="http://twitter.com/<?php echo $options['twitter_username']; ?>/"><?php _e('Twitter', 'inove'); ?></a>
+				<a id="followme" title="<?php _e('Follow me!', 'linove'); ?>" href="http://twitter.com/<?php echo $options['twitter_username']; ?>/"><?php _e('Twitter', 'linove'); ?></a>
 			<?php endif; ?>
 			<div class="fixed"></div>
 		</div>
@@ -53,7 +53,7 @@
 	) ) : ?>
 		<div class="widget">
 			<?php if($options['showcase_caption']) : ?>
-				<h3><?php if($options['showcase_title']){echo($options['showcase_title']);}else{_e('Showcase', 'inove');} ?></h3>
+				<h3><?php if($options['showcase_title']){echo($options['showcase_title']);}else{_e('Showcase', 'linove');} ?></h3>
 			<?php endif; ?>
 			<div class="content">
 				<?php echo($options['showcase_content']); ?>

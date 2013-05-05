@@ -179,8 +179,8 @@ if (document.addEventListener) {
 	document.addEventListener("DOMContentLoaded", loadMenus, false);
 
 } else if (/MSIE/i.test(navigator.userAgent)) {
-	document.write('<script id="__ie_onload_for_inove" defer src="javascript:void(0)"></script>');
-	var script = document.getElementById('__ie_onload_for_inove');
+	document.write('<script id="__ie_onload_for_linove" defer src="javascript:void(0)"></script>');
+	var script = document.getElementById('__ie_onload_for_linove');
 	script.onreadystatechange = function() {
 		if (this.readyState == 'complete') {
 			loadMenus();

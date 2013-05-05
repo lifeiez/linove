@@ -2,12 +2,12 @@
 
 <?php if (!empty($post->post_password) && $_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) : ?>
 	<div class="errorbox">
-		<?php _e('Enter your password to view comments.', 'inove'); ?>
+		<?php _e('Enter your password to view comments.', 'linove'); ?>
 	</div>
 <?php return; endif; ?>
 
 <?php
-	$options = get_option('inove_options');
+	$options = get_option('linove_options');
 	// for WordPress 2.7 or higher
 	if (function_exists('wp_list_comments')) {
 		$trackbacks = $comments_by_type['pings'];
@@ -22,16 +22,16 @@
 
 <div id="cmtswitcher">
 	<?php if(pings_open()) : ?>
-		<a id="commenttab" class="curtab" href="javascript:void(0);" onclick="MGJS.switchTab('thecomments,commentnavi', 'thetrackbacks', 'commenttab', 'curtab', 'trackbacktab', 'tab');"><?php _e('Comments', 'inove'); echo (' (' . (count($comments)-count($trackbacks)) . ')'); ?></a>
-		<a id="trackbacktab" class="tab" href="javascript:void(0);" onclick="MGJS.switchTab('thetrackbacks', 'thecomments,commentnavi', 'trackbacktab', 'curtab', 'commenttab', 'tab');"><?php _e('Trackbacks', 'inove'); echo (' (' . count($trackbacks) . ')'); ?></a>
+		<a id="commenttab" class="curtab" href="javascript:void(0);" onclick="MGJS.switchTab('thecomments,commentnavi', 'thetrackbacks', 'commenttab', 'curtab', 'trackbacktab', 'tab');"><?php _e('Comments', 'linove'); echo (' (' . (count($comments)-count($trackbacks)) . ')'); ?></a>
+		<a id="trackbacktab" class="tab" href="javascript:void(0);" onclick="MGJS.switchTab('thetrackbacks', 'thecomments,commentnavi', 'trackbacktab', 'curtab', 'commenttab', 'tab');"><?php _e('Trackbacks', 'linove'); echo (' (' . count($trackbacks) . ')'); ?></a>
 	<?php else : ?>
-		<a id="commenttab" class="curtab" href="javascript:void(0);"><?php _e('Comments', 'inove'); echo (' (' . (count($comments)-count($trackbacks)) . ')'); ?></a>
+		<a id="commenttab" class="curtab" href="javascript:void(0);"><?php _e('Comments', 'linove'); echo (' (' . (count($comments)-count($trackbacks)) . ')'); ?></a>
 	<?php endif; ?>
 	<?php if(comments_open()) : ?>
-		<span class="addcomment"><a href="#respond"><?php _e('Leave a comment', 'inove'); ?></a></span>
+		<span class="addcomment"><a href="#respond"><?php _e('Leave a comment', 'linove'); ?></a></span>
 	<?php endif; ?>
 	<?php if(pings_open()) : ?>
-		<span class="addtrackback"><a href="<?php trackback_url(); ?>"><?php _e('Trackback', 'inove'); ?></a></span>
+		<span class="addtrackback"><a href="<?php trackback_url(); ?>"><?php _e('Trackback', 'linove'); ?></a></span>
 	<?php endif; ?>
 	<div class="fixed"></div>
 </div>
@@ -55,7 +55,7 @@
 		} else {
 	?>
 		<li class="messagebox">
-			<?php _e('No comments yet.', 'inove'); ?>
+			<?php _e('No comments yet.', 'linove'); ?>
 		</li>
 	<?php
 		}
@@ -69,7 +69,7 @@
 		if ($comment_pages) {
 ?>
 		<div id="commentnavi">
-			<span class="pages"><?php _e('Comment pages', 'inove'); ?></span>
+			<span class="pages"><?php _e('Comment pages', 'linove'); ?></span>
 			<div id="commentpager">
 				<?php echo $comment_pages; ?>
 				<span id="cp_post_id"><?php echo $post->ID; ?></span>
@@ -88,11 +88,11 @@
 				<?php foreach ($trackbacks as $comment) : ?>
 					<li class="trackback">
 						<div class="date">
-							<?php printf( __('%1$s at %2$s', 'inove'), get_comment_time(__('F jS, Y', 'inove')), get_comment_time(__('H:i', 'inove')) ); ?>
+							<?php printf( __('%1$s at %2$s', 'linove'), get_comment_time(__('F jS, Y', 'linove')), get_comment_time(__('H:i', 'linove')) ); ?>
 							 | <a href="#comment-<?php comment_ID() ?>"><?php printf('#%1$s', ++$trackbackcount); ?></a>
 						</div>
 						<div class="act">
-							<?php edit_comment_link(__('Edit', 'inove'), '', ''); ?>
+							<?php edit_comment_link(__('Edit', 'linove'), '', ''); ?>
 						</div>
 						<div class="fixed"></div>
 						<div class="title">
@@ -105,7 +105,7 @@
 
 			<?php else : ?>
 				<li class="messagebox">
-					<?php _e('No trackbacks yet.', 'inove'); ?>
+					<?php _e('No trackbacks yet.', 'linove'); ?>
 				</li>
 
 			<?php endif; ?>
@@ -120,7 +120,7 @@
 
 <?php if (!comments_open()) : // If comments are closed. ?>
 	<div class="messagebox">
-		<?php _e('Comments are closed.', 'inove'); ?>
+		<?php _e('Comments are closed.', 'linove'); ?>
 	</div>
 <?php elseif ( get_option('comment_registration') && !$user_ID ) : // If registration required and not logged in. ?>
 	<div id="comment_login" class="messagebox">
@@ -131,7 +131,7 @@
 				$login_link = get_option('siteurl') . '/wp-login.php?redirect_to=' . urlencode(get_permalink());
 			}
 		?>
-		<?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'inove'), $login_link); ?>
+		<?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'linove'), $login_link); ?>
 	</div>
 
 <?php else : ?>
@@ -147,31 +147,31 @@
 				}
 			?>
 			<div class="row">
-				<?php _e('Logged in as', 'inove'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><strong><?php echo $user_identity; ?></strong></a>.
-				 <a href="<?php echo $logout_link; ?>" title="<?php _e('Log out of this account', 'inove'); ?>"><?php _e('Logout &raquo;', 'inove'); ?></a>
+				<?php _e('Logged in as', 'linove'); ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><strong><?php echo $user_identity; ?></strong></a>.
+				 <a href="<?php echo $logout_link; ?>" title="<?php _e('Log out of this account', 'linove'); ?>"><?php _e('Logout &raquo;', 'linove'); ?></a>
 			</div>
 
 			<?php else : ?>
 			<?php if ( $comment_author != "" ) : ?>
 				<div class="row">
-					<?php printf(__('Welcome back <strong>%s</strong>.', 'inove'), $comment_author) ?>
-					<span id="show_author_info"><a href="javascript:void(0);" onclick="MGJS.setStyleDisplay('author_info','');MGJS.setStyleDisplay('show_author_info','none');MGJS.setStyleDisplay('hide_author_info','');"><?php _e('Change &raquo;', 'inove'); ?></a></span>
-					<span id="hide_author_info"><a href="javascript:void(0);" onclick="MGJS.setStyleDisplay('author_info','none');MGJS.setStyleDisplay('show_author_info','');MGJS.setStyleDisplay('hide_author_info','none');"><?php _e('Close &raquo;', 'inove'); ?></a></span>
+					<?php printf(__('Welcome back <strong>%s</strong>.', 'linove'), $comment_author) ?>
+					<span id="show_author_info"><a href="javascript:void(0);" onclick="MGJS.setStyleDisplay('author_info','');MGJS.setStyleDisplay('show_author_info','none');MGJS.setStyleDisplay('hide_author_info','');"><?php _e('Change &raquo;', 'linove'); ?></a></span>
+					<span id="hide_author_info"><a href="javascript:void(0);" onclick="MGJS.setStyleDisplay('author_info','none');MGJS.setStyleDisplay('show_author_info','');MGJS.setStyleDisplay('hide_author_info','none');"><?php _e('Close &raquo;', 'linove'); ?></a></span>
 				</div>
 			<?php endif; ?>
 
 			<div id="author_info">
 				<div class="row">
 					<input type="text" name="author" id="author" class="textfield" value="<?php echo $comment_author; ?>" size="24" tabindex="1" />
-					<label for="author" class="small"><?php _e('Name', 'inove'); ?> <?php if ($req) _e('(required)', 'inove'); ?></label>
+					<label for="author" class="small"><?php _e('Name', 'linove'); ?> <?php if ($req) _e('(required)', 'linove'); ?></label>
 				</div>
 				<div class="row">
 					<input type="text" name="email" id="email" class="textfield" value="<?php echo $comment_author_email; ?>" size="24" tabindex="2" />
-					<label for="email" class="small"><?php _e('E-Mail (will not be published)', 'inove');?> <?php if ($req) _e('(required)', 'inove'); ?></label>
+					<label for="email" class="small"><?php _e('E-Mail (will not be published)', 'linove');?> <?php if ($req) _e('(required)', 'linove'); ?></label>
 				</div>
 				<div class="row">
 					<input type="text" name="url" id="url" class="textfield" value="<?php echo $comment_author_url; ?>" size="24" tabindex="3" />
-					<label for="url" class="small"><?php _e('Website', 'inove'); ?></label>
+					<label for="url" class="small"><?php _e('Website', 'linove'); ?></label>
 				</div>
 			</div>
 
@@ -188,9 +188,9 @@
 
 		<!-- comment submit and rss -->
 		<div id="submitbox">
-			<a class="feed" href="<?php bloginfo('comments_rss2_url'); ?>"><?php _e('Subscribe to comments feed', 'inove'); ?></a>
+			<a class="feed" href="<?php bloginfo('comments_rss2_url'); ?>"><?php _e('Subscribe to comments feed', 'linove'); ?></a>
 			<div class="submitbutton">
-				<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="<?php _e('Submit Comment', 'inove'); ?>" />
+				<input name="submit" type="submit" id="submit" class="button" tabindex="5" value="<?php _e('Submit Comment', 'linove'); ?>" />
 			</div>
 			<?php if (function_exists('highslide_emoticons')) : ?>
 				<div id="emoticon"><?php highslide_emoticons(); ?></div>

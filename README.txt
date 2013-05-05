@@ -1,4 +1,4 @@
-=== iNove ===
+=== linove ===
 Contributors: mg12
 Donate link: http://www.neoease.com/themes/
 Tags: white, light, two-columns, fixed-width, theme-options, right-sidebar
@@ -8,7 +8,7 @@ Stable tag: 1.4.6
 
 == Description ==
 
-iNove theme inspired by MacZone.sk. It is very stylish, widget supported and doesn’t require any plugin.
+linove theme inspired by MacZone.sk. It is very stylish, widget supported and doesn’t require any plugin.
 
 Tested on WordPress 2.5.1/2.6.3/2.7.1/2.8.3, with IE 6/7/8, Firefox 2/3/3.5, Opera 9.6, Safari 4 and Chrome 2.0.
 Valid XHTML 1.1 and CSS 3!
@@ -68,4 +68,4 @@ Mail To Commenter: http://www.thinkagain.cn/archives/989.html (via '@+user+blank
 
 == Demo ==
 
-http://demo.neoease.com/index.php?wptheme=iNove
+http://demo.neoease.com/index.php?wptheme=linove

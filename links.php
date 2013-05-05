@@ -15,18 +15,18 @@ Template Name: Links
 		<h2>
 			<?php if ( $user_ID ) : ?>
 				<div class="act">
-					<span class="addlink"><a href="<?php echo get_settings('siteurl'); ?>/wp-admin/link-add.php"><?php _e('Add link', 'inove'); ?></a></span>
-					<span class="editlinks"><a href="<?php echo get_settings('siteurl'); ?>/wp-admin/link-manager.php"><?php _e('Edit links', 'inove'); ?></a></span>
+					<span class="addlink"><a href="<?php echo get_settings('siteurl'); ?>/wp-admin/link-add.php"><?php _e('Add link', 'linove'); ?></a></span>
+					<span class="editlinks"><a href="<?php echo get_settings('siteurl'); ?>/wp-admin/link-manager.php"><?php _e('Edit links', 'linove'); ?></a></span>
 				</div>
 			<?php endif; ?>
 			<?php the_title(); ?>
 		</h2>
 		<div class="info">
-			<span class="date"><?php the_modified_time(__('F jS, Y', 'inove')); ?></span>
-			<?php edit_post_link(__('Edit', 'inove'), '<span class="editpost">', '</span>'); ?>
+			<span class="date"><?php the_modified_time(__('F jS, Y', 'linove')); ?></span>
+			<?php edit_post_link(__('Edit', 'linove'), '<span class="editpost">', '</span>'); ?>
 			<?php if ($comments || comments_open()) : ?>
-				<span class="addcomment"><a href="#respond"><?php _e('Leave a comment', 'inove'); ?></a></span>
-				<span class="comments"><a href="#comments"><?php _e('Go to comments', 'inove'); ?></a></span>
+				<span class="addcomment"><a href="#respond"><?php _e('Leave a comment', 'linove'); ?></a></span>
+				<span class="comments"><a href="#comments"><?php _e('Go to comments', 'linove'); ?></a></span>
 			<?php endif; ?>
 			<div class="fixed"></div>
 		</div>
@@ -56,7 +56,7 @@ Template Name: Links
 
 <?php else : ?>
 	<div class="errorbox">
-		<?php _e('Sorry, no posts matched your criteria.', 'inove'); ?>
+		<?php _e('Sorry, no posts matched your criteria.', 'linove'); ?>
 	</div>
 <?php endif; ?>
 
