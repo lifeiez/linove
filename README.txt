@@ -1,6 +1,6 @@
 === linove ===
-Contributors: mg12
-Donate link: http://www.neoease.com/themes/
+Contributors: mg12,linjl
+Donate link: 
 Tags: white, light, two-columns, fixed-width, theme-options, right-sidebar
 Requires at least: 2.5
 Tested up to: 2.8.3
@@ -66,6 +66,21 @@ Thread Twitter: http://fairyfish.net/2009/01/16/thread-twitter/ (version 0.4 or 
 AJAX Comment Pager: http://www.neoease.com/plugins/ (Comment list ID: thecomments | Callback method name: custom_comments)
 Mail To Commenter: http://www.thinkagain.cn/archives/989.html (via '@+user+blank')
 
-== Demo ==
+== version 1.0.0==
+init by inove
 
-http://demo.neoease.com/index.php?wptheme=linove
+== version 1.0.1==
+修改：
+	1、字体从11-->14
+	2、内容图片最大宽度从600-->650
+	3、评论宽度从601-->651
+	4、整体字体从Arial-->Microsoft YaHei
+	5、界面整体宽度从936-->990
+
+新增：
+	1、模版页面archives，效果查看http://linjunlong.com/archives
+	2、在原有订阅的情况下新增增加qq reader,douban reader,rojo reader,pageflakes readers订阅
+
+
+
+

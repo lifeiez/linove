@@ -22,17 +22,21 @@
 	<div class="widget widget_feeds">
 		<div class="content">
 			<div id="subscribe">
-				<a rel="external nofollow" id="feedrss" title="<?php _e('Subscribe to this blog...', 'linove'); ?>" href="<?php echo $feed; ?>"><?php _e('<abbr title="Really Simple Syndication">RSS</abbr>', 'linove'); ?></a>
+				<a rel="external nofollow" id="feedrss" title="<?php _e('Subscribe to this blog...', 'inove'); ?>" href="<?php echo $feed; ?>"><?php _e('<abbr title="Really Simple Syndication">RSS</abbr>', 'inove'); ?></a>
 				<?php if($options['feed_readers']) : ?>
 					<ul id="feed_readers">
-						<li id="google_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Google', 'linove'); ?>" href="http://fusion.google.com/add?feedurl=<?php echo $feed; ?>"><span><?php _e('Google', 'linove'); ?></span></a></li>
-						<li id="youdao_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Youdao', 'linove'); ?>" href="http://reader.youdao.com/#url=<?php echo $feed; ?>"><span><?php _e('Youdao', 'linove'); ?></span></a></li>
-						<li id="xianguo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Xian Guo', 'linove'); ?>" href="http://www.xianguo.com/subscribe.php?url=<?php echo $feed; ?>"><span><?php _e('Xian Guo', 'linove'); ?></span></a></li>
-						<li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Zhua Xia', 'linove'); ?>" href="http://www.zhuaxia.com/add_channel.php?url=<?php echo $feed; ?>"><span><?php _e('Zhua Xia', 'linove'); ?></span></a></li>
-						<li id="yahoo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('My Yahoo!', 'linove'); ?>"	href="http://add.my.yahoo.com/rss?url=<?php echo $feed; ?>"><span><?php _e('My Yahoo!', 'linove'); ?></span></a></li>
-						<li id="newsgator_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('newsgator', 'linove'); ?>"	href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=<?php echo $feed; ?>"><span><?php _e('newsgator', 'linove'); ?></span></a></li>
-						<li id="bloglines_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('Bloglines', 'linove'); ?>"	href="http://www.bloglines.com/sub/<?php echo $feed; ?>"><span><?php _e('Bloglines', 'linove'); ?></span></a></li>
-						<li id="inezha_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'linove'); _e('iNezha', 'linove'); ?>"	href="http://inezha.com/add?url=<?php echo $feed; ?>"><span><?php _e('iNezha', 'linove'); ?></span></a></li>
+						<li id="google_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Google', 'inove'); ?>" href="http://fusion.google.com/add?feedurl=<?php echo $feed; ?>"><span><?php _e('Google', 'inove'); ?></span></a></li>
+						<li id="youdao_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Youdao', 'inove'); ?>" href="http://reader.youdao.com/#url=<?php echo $feed; ?>"><span><?php _e('Youdao', 'inove'); ?></span></a></li>
+						<li id="xianguo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Xian Guo', 'inove'); ?>" href="http://www.xianguo.com/subscribe.php?url=<?php echo $feed; ?>"><span><?php _e('Xian Guo', 'inove'); ?></span></a></li>
+						<li id="zhuaxia_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Zhua Xia', 'inove'); ?>" href="http://www.zhuaxia.com/add_channel.php?url=<?php echo $feed; ?>"><span><?php _e('Zhua Xia', 'inove'); ?></span></a></li>
+						<li id="yahoo_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('My Yahoo!', 'inove'); ?>"	href="http://add.my.yahoo.com/rss?url=<?php echo $feed; ?>"><span><?php _e('My Yahoo!', 'inove'); ?></span></a></li>
+						<li id="newsgator_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('newsgator', 'inove'); ?>"	href="http://www.newsgator.com/ngs/subscriber/subfext.aspx?url=<?php echo $feed; ?>"><span><?php _e('newsgator', 'inove'); ?></span></a></li>
+						<li id="bloglines_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('Bloglines', 'inove'); ?>"	href="http://www.bloglines.com/sub/<?php echo $feed; ?>"><span><?php _e('Bloglines', 'inove'); ?></span></a></li>
+						<li id="inezha_reader"><a rel="external nofollow" class="reader" title="<?php _e('Subscribe with ', 'inove'); _e('iNezha', 'inove'); ?>"	href="http://inezha.com/add?url=<?php echo $feed; ?>"><span><?php _e('iNezha', 'inove'); ?></span></a></li>
+						<li id="qq_reader"><a rel="external nofollow"  class="reader" title="订阅到QQ Mail" onclick="window.open(this.href);return false;"  href="http://mail.qq.com/cgi-bin/feed?u=<?php echo $feed; ?>"><span>QQ Mail</span></a></li>
+            			<li id="douban_reader"><a class="reader" title="订阅到Douban" onclick="window.open(this.href);return false;" rel="external nofollow" href="http://9.douban.com/reader/subscribe?url=<?php echo $feed; ?>"><span>Douban</span></a></li>
+            			<li id="rojo_reader"><a class="reader" title="订阅到Rojo" onclick="window.open(this.href);return false;" rel="external nofollow" href="http://www.rojo.com/add-subscription?resource=<?php echo $feed; ?>"><span></span></a></li>
+            			<li id="pageflakes_reader"><a class="reader" title="订阅到Pageflakes" onclick="window.open(this.href);return false;" rel="external nofollow" href="http://www.pageflakes.com/subscribe.aspx?url=<?php echo $feed; ?>"><span>Pageflakes</span></a></li>
 					</ul>
 				<?php endif; ?>
 			</div>
