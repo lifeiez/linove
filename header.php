@@ -30,21 +30,20 @@
 
 	<!-- style START -->
 	<!-- default style -->
-	<style type="text/css" media="screen">@import url( <?php bloginfo('stylesheet_url'); ?> );</style>
+	<style type="text/css" media="screen">@import url( <?php bloginfo('stylesheet_directory'); ?>/css/style.1.0.2.css );</style>
 	<!-- for translations -->
 	<?php if (strtoupper(get_locale()) == 'ZH_CN' || strtoupper(get_locale()) == 'ZH_TW') : ?>
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/chinese.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/chinese.1.0.2.css" type="text/css" media="screen" />
 	<?php elseif (strtoupper(get_locale()) == 'HE_IL' || strtoupper(get_locale()) == 'FA_IR' || strtoupper(get_locale()) == 'UG_CN' || strtoupper(get_locale()) == 'CKB') : ?>
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/rtl.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/rtl.1.0.2.css" type="text/css" media="screen" />
 	<?php endif; ?>
 	<!--[if IE]>
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/ie.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie.1.0.2.css" type="text/css" media="screen" />
 	<![endif]-->
 	<!-- style END -->
 
 	<!-- script START -->
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/base.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/menu.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/bm.1.0.2.js"></script>
 	<!-- script END -->
 
 	<?php wp_head(); ?>

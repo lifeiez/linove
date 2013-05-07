@@ -24,7 +24,7 @@ a:hover {
 	width:750px;
 }
 #talker {
-	background:url(img/commentpoint.png) 100% 33% no-repeat;
+	background:url(../img/commentpoint.png) 100% 33% no-repeat;
 	padding-right:45px;
 	float:left;
 }
@@ -33,7 +33,7 @@ a:hover {
 	margin-top:20px;
 }
 #notice {
-	background:#EDEFF0 url(img/postbox.gif) 0 0 no-repeat;
+	background:#EDEFF0 url(../img/postbox.gif) 0 0 no-repeat;
 	width:560px;
 	float:left;
 	padding:15px 20px 0;
@@ -47,7 +47,7 @@ a:hover {
 	margin-top:10px;
 }
 #notice .back {
-	background:url(img/postbox.gif) 100% 100% no-repeat;
+	background:url(../img/postbox.gif) 100% 100% no-repeat;
 	width:560px;
 	display:block;
 	margin:0 -20px;

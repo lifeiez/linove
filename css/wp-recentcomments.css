@@ -60,7 +60,7 @@
 	float:right;
 }
 .rc_ajax_loader {
-	background:url(img/ajax-loader.gif) left no-repeat;
+	background:url(../img/ajax-loader.gif) left no-repeat;
 	padding-left:22px;
 	height:16px;
 	line-height:16px;

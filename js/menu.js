@@ -150,7 +150,7 @@ addListener = function(element, name, observer, useCapture) {
 function loadMenus() {
 	var align = 'left';
 	for(var i = 0; (a = document.getElementsByTagName('link')[i]); i++) {
-		if((a.getAttribute('rel') == 'stylesheet') && (a.getAttribute('href').indexOf('rtl.css') != -1)) {
+		if((a.getAttribute('rel') == 'stylesheet') && (a.getAttribute('href').indexOf('rtl.1.0.2.css') != -1)) {
 			align = 'right';
 		}
 	}

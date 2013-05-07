@@ -9,7 +9,7 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all comments', 'linove'); ?>" href="<?php bloginfo('comments_rss2_url'); ?>" />
 
 	<!-- style START -->
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/404.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/404.1.0.2.css" type="text/css" media="screen" />
 	<!-- style END -->
 
 	<?php wp_head(); ?>

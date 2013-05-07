@@ -3,7 +3,7 @@ body {
 	direction:rtl;
 }
 blockquote, pre {
-	background:#F4F5F7 url(imgrtl/blockquote.gif) 100% 3px no-repeat;
+	background:#F4F5F7 url(../imgrtl/blockquote.gif) 100% 3px no-repeat;
 	padding:8px 36px 8px 12px;
 }
 
@@ -15,7 +15,7 @@ blockquote, pre {
 	float:left;
 }
 #menus li a {
-	background:transparent url(imgrtl/menu.gif) 100% 0 no-repeat;
+	background:transparent url(../imgrtl/menu.gif) 100% 0 no-repeat;
 	float:right;
 	margin-right:-10px;
 	padding:0 20px 0 30px;
@@ -48,11 +48,11 @@ blockquote, pre {
 }
 #menus li li a.subtitle, 
 #menus li li a.subtitle:hover {
-	background-image:url(imgrtl/arrow.gif);
+	background-image:url(../imgrtl/arrow.gif);
 	background-position:left;
 }
 #searchbox {
-	background: url(imgrtl/searchbox.gif) no-repeat;
+	background: url(../imgrtl/searchbox.gif) no-repeat;
 	float:left;
 	margin-right:0;
 	margin-left:10px !important;
@@ -65,7 +65,7 @@ blockquote, pre {
 
 /* content START */
 #content {
-	background:#FFF url(imgrtl/sidesep.gif) left repeat-y;
+	background:#FFF url(../imgrtl/sidesep.gif) left repeat-y;
 }
 /* content END */
 
@@ -87,7 +87,7 @@ blockquote, pre {
 }
 .post .tags, 
 .post .categories {
-	background:url(img/icons.gif) no-repeat;
+	background:url(../img/icons.gif) no-repeat;
 	padding-left:0;
 }
 .post .content .under span.tags, 
@@ -152,7 +152,7 @@ blockquote, pre {
 	margin-right:0;
 }
 #postpath {
-	background:url(imgrtl/path.gif) right no-repeat;
+	background:url(../imgrtl/path.gif) right no-repeat;
 	padding-left:0;
 	padding-right:22px;
 }
@@ -190,16 +190,16 @@ blockquote, pre {
 	float:right;
 }
 #sidebar #feedrss {
-	background: url(img/feeds.gif) 100% 5px no-repeat;
+	background: url(../img/feeds.gif) 100% 5px no-repeat;
 	margin-right:5px;
 }
 #sidebar #feedemail {
-	background: url(img/feeds.gif) 100% -45px no-repeat;
+	background: url(../img/feeds.gif) 100% -45px no-repeat;
 	margin-left:0;
 	margin-right:15px;
 }
 #sidebar #followme {
-	background: url(img/feeds.gif) 100% -95px no-repeat;
+	background: url(../img/feeds.gif) 100% -95px no-repeat;
 	margin-left:0;
 	margin-right:15px;
 }
@@ -248,7 +248,7 @@ a#gotop {
 	float:right;
 }
 .comment .pic {
-	background:url(img/commentpoint.png) 0% 33% no-repeat;
+	background:url(../img/commentpoint.png) 0% 33% no-repeat;
 	padding-right:0;
 	padding-left:14px;
 }
@@ -262,7 +262,7 @@ a#gotop {
 	text-align:center;
 }
 .admincomment .pic {
-	background:url(img/commentpoint.png) 100% 33% no-repeat;
+	background:url(../img/commentpoint.png) 100% 33% no-repeat;
 	padding-right:14px;
 	padding-left:0;
 	margin-top:10px;

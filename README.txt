@@ -80,6 +80,18 @@ init by inove
 新增：
 	1、模版页面archives，效果查看http://linjunlong.com/archives
 	2、在原有订阅的情况下新增增加qq reader,douban reader,rojo reader,pageflakes readers订阅
+	
+== version 1.0.2==
+备注：压缩css,js地址http://app.baidu.com/app/enter?appid=152856
+修改：
+	1、移动linove/*.css到linove/css/*.css下并修改所有引用了这些css的页面的链接
+	2、修改style.css删除里面的css，并采用导入css/style.css的方式引用
+新增：
+	1、新增linove/css/*.css下被应用的css的压缩文件，采用css名+版本号+后缀
+	2、合并base.js和menu.js成bm.1.0.2.js并压缩
+删除:
+	1、删除linove/*.css只留下style.css
+
 
 
 

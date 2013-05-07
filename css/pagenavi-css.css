@@ -11,7 +11,7 @@
 .wp-pagenavi span.pages {
 	padding:1px 7px 1px 22px !important;
 	padding:2px 7px 2px 22px;
-	background:url(img/icons.gif) 0 -272px no-repeat;
+	background:url(../img/icons.gif) 0 -272px no-repeat;
 	height:16px;
 	line-height:16px;
 }

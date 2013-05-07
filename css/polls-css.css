@@ -103,7 +103,7 @@
 
 /* polls START */
 .wp-polls {
-	background:#E3E4E6 url(img/postbox.gif) 0 0 no-repeat;
+	background:#E3E4E6 url(../img/postbox.gif) 0 0 no-repeat;
 	padding:6px 12px 0;
 	margin-bottom:10px;
 }
@@ -120,7 +120,7 @@
 	padding:5px;
 }
 .wp-polls .wp-polls-ans {
-	background:#F4F5F7 url(img/postbox.gif) 100% 100% no-repeat;
+	background:#F4F5F7 url(../img/postbox.gif) 100% 100% no-repeat;
 	border-top:1px solid #CCC;
 	padding:8px 12px;
 	margin:6px -12px 0;
