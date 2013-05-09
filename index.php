@@ -44,8 +44,7 @@
 	<?php if(function_exists('wp_pagenavi')) : ?>
 		<?php wp_pagenavi() ?>
 	<?php else : ?>
-		<span class="newer"><?php previous_posts_link(__('Newer Entries', 'linove')); ?></span>
-		<span class="older"><?php next_posts_link(__('Older Entries', 'linove')); ?></span>
+		<?php pagination($query_string); ?>  
 	<?php endif; ?>
 	<div class="fixed"></div>
 </div>
