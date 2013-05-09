@@ -20,17 +20,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
+<?php include('includes/seo.php'); ?>
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-
-	<title><?php bloginfo('name'); ?><?php wp_title(); ?></title>
 	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all posts', 'linove'); ?>" href="<?php echo $feed; ?>" />
 	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all comments', 'linove'); ?>" href="<?php bloginfo('comments_rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 	<!-- style START -->
 	<!-- default style -->
-	<style type="text/css" media="screen">@import url( <?php bloginfo('stylesheet_directory'); ?>/css/style.1.0.2.css );</style>
+	<style type="text/css" media="screen">@import url( <?php bloginfo('stylesheet_directory'); ?>/css/style.1.0.3.css );</style>
 	<!-- for translations -->
 	<?php if (strtoupper(get_locale()) == 'ZH_CN' || strtoupper(get_locale()) == 'ZH_TW') : ?>
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/chinese.1.0.2.css" type="text/css" media="screen" />
