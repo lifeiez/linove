@@ -53,28 +53,27 @@ if ( is_single() ){
     }
 }
 ?>
-<?php echo "\n"; ?>
 <?php if ( is_single() ) { ?>
-<meta name="description" content="<?php echo trim($description); ?>" />
-<meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
+	<meta name="description" content="<?php echo trim($description); ?>" />
+	<meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
 <?php } ?>
 <?php if ( is_home() ) { ?>
-<meta name="description" content="<?php echo get_option('swt_description'); ?>" />
-<meta name="keywords" content="<?php echo get_option('swt_keywords'); ?>" />
+	<meta name="description" content="<?php echo get_option('swt_description'); ?>" />
+	<meta name="keywords" content="<?php echo get_option('swt_keywords'); ?>" />
 <?php } ?>
 <?php if ( is_category() ) { ?>
-<meta name="description" content="<?php echo strip_tags(category_description($cat_ID)); ?>" />
-<meta name="keywords" content="<?php echo get_option('swt_keywords'); ?>" />
+	<meta name="description" content="<?php echo strip_tags(category_description($cat_ID)); ?>" />
+	<meta name="keywords" content="<?php echo get_option('swt_keywords'); ?>" />
 <?php } ?>
 <?php if ( is_tag() ) { ?>
-<meta name="description" content="<?php bloginfo('name'); ?>上关于<?php echo single_tag_title(); ?>的所有日志聚合" />
+	<meta name="description" content="<?php bloginfo('name'); ?>上关于<?php echo single_tag_title(); ?>的所有日志聚合" />
 <?php } ?>
 <?php if ( is_year() ) { ?>
-<meta name="description" content="<?php bloginfo('name'); ?>上<?php the_time('Y年'); ?>发布的所有日志聚合" />
+	<meta name="description" content="<?php bloginfo('name'); ?>上<?php the_time('Y年'); ?>发布的所有日志聚合" />
 <?php } ?>
 <?php if ( is_month() ) { ?>
-<meta name="description" content="<?php bloginfo('name'); ?>上<?php the_time('Y年n月'); ?>份发布的所有日志聚合" />
+	<meta name="description" content="<?php bloginfo('name'); ?>上<?php the_time('Y年n月'); ?>份发布的所有日志聚合" />
 <?php } ?>
 <?php if ( is_day() ) { ?>
-<meta name="description" content="<?php bloginfo('name'); ?>博客上<?php the_time('Y年n月j日'); ?>发布的所有日志聚合" />
+	<meta name="description" content="<?php bloginfo('name'); ?>博客上<?php the_time('Y年n月j日'); ?>发布的所有日志聚合" />
 <?php } ?>
