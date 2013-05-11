@@ -54,7 +54,9 @@
 		echo($options['analytics_content']);
 	}
 ?>
-
+<!-- script START -->
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/bm.1.0.2.js"></script>
+<!-- script END -->
 </body>
 </html>
 
