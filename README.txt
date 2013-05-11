@@ -91,6 +91,13 @@ init by inove
 	2、合并base.js和menu.js成bm.1.0.2.js并压缩
 删除:
 	1、删除linove/*.css只留下style.css
+	
+== version 1.0.3 ==
+修改：
+	1、把首页脚本移动到body后
+新增：
+	1、不用插件实现seo
+	2、不用插件实现分页
 
 
 
