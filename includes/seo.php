@@ -2,7 +2,7 @@
 <title><?php bloginfo('name'); ?> | <?php bloginfo('description'); ?></title>
 <?php } ?>
 <?php if ( is_search() ) { ?>
-<title>搜索结果 | <?php bloginfo('name'); ?></title>
+<title><?php printf('%1$s 的搜索结果', wp_specialchars($s, 1)); ?> | <?php bloginfo('name'); ?></title>
 <?php } ?>
 <?php if ( is_single() ) { ?>
 <title><?php echo trim(wp_title('',0)); ?><?php if (get_query_var('page')) { echo '-第'; echo get_query_var('page'); echo '页';}?> | <?php bloginfo('name'); ?></title>
@@ -26,13 +26,17 @@
 <title><?php  single_tag_title("", true); ?> | <?php bloginfo('name'); ?></title>
 <?php } ?><?php } ?>
 <?php
+	$options = get_option('linove_options');
+	if (!$options['seo_open']) {
+?>
+	<?php
 if (!function_exists('utf8Substr')) {
- function utf8Substr($str, $from, $len)
- {
-     return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
-          '((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$len.'}).*#s',
-          '$1',$str);
- }
+	 function utf8Substr($str, $from, $len)
+	 {
+	     return preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
+	      '((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$len.'}).*#s',
+	      '$1',$str);
+	 }
 }
 if ( is_single() ){
     if ($post->post_excerpt) {
@@ -51,6 +55,10 @@ if ( is_single() ){
     foreach ($tags as $tag ) {
         $keywords = $keywords . $tag->name . ",";
     }
+}else if( is_home()){
+	$options = get_option('linove_options');
+	$description = $options['seo_description'];
+	$keywords = $options['seo_keywords'];
 }
 ?>
 <?php if ( is_single() ) { ?>
@@ -58,7 +66,7 @@ if ( is_single() ){
 	<meta name="keywords" content="<?php echo rtrim($keywords,','); ?>" />
 <?php } ?>
 <?php if ( is_home() ) { ?>
-	<meta name="description" content="<?php echo get_option('swt_description'); ?>" />
+	<meta name="description" content="<?php echo get_option('linove_description'); ?>" />
 	<meta name="keywords" content="<?php echo get_option('swt_keywords'); ?>" />
 <?php } ?>
 <?php if ( is_category() ) { ?>
@@ -77,3 +85,6 @@ if ( is_single() ){
 <?php if ( is_day() ) { ?>
 	<meta name="description" content="<?php bloginfo('name'); ?>博客上<?php the_time('Y年n月j日'); ?>发布的所有日志聚合" />
 <?php } ?>
+<?php
+	} 
+?>

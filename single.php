@@ -8,7 +8,7 @@
 		 &gt; <?php the_category(', '); ?>
 		 &gt; <?php the_title(); ?>
 	</div>
-
+	
 	<div class="post" id="post-<?php the_ID(); ?>">
 		<h2><?php the_title(); ?></h2>
 		<div class="info">
@@ -22,7 +22,19 @@
 			<div class="fixed"></div>
 		</div>
 		<div class="content">
+			<?php
+				$options = get_option('linove_options');
+				if ($options['post_content_top']) {
+					echo($options['post_content_top_content']);
+				} 
+			?>
 			<?php the_content(); ?>
+			<?php
+				$options = get_option('linove_options');
+				if ($options['post_content_bottom']) {
+					echo($options['post_content_bottom_content']);
+				} 
+			?>
 			<div class="fixed"></div>
 		</div>
 		<div class="under">

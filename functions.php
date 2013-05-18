@@ -35,6 +35,14 @@ class linoveOptions {
 			$options['twitter_username'] = '';
 			$options['analytics'] = false;
 			$options['analytics_content'] = '';
+			$options['post_content_top'] = false;
+			$options['post_content_top_content'] = '';
+			$options['post_content_bottom'] = false;
+			$options['post_content_bottom_content'] = '';
+			$options['seo_description'] = '';
+			$options['seo_keywords'] = '';
+			$options['seo_open'] = true;
+			$options['function_feeds'] = true;
 			update_option('linove_options', $options);
 		}
 		return $options;
@@ -170,7 +178,40 @@ class linoveOptions {
 				$options['analytics'] = (bool)false;
 			}
 			$options['analytics_content'] = stripslashes($_POST['analytics_content']);
-
+			
+			// post top
+			if ($_POST['post_content_top']) {
+				$options['post_content_top'] = (bool)true;
+			} else {
+				$options['post_content_top'] = (bool)false;
+			}
+			$options['post_content_top_content'] = stripslashes($_POST['post_content_top_content']);
+			
+			// post bottom
+			if ($_POST['post_content_bottom']) {
+				$options['post_content_bottom'] = (bool)true;
+			} else {
+				$options['post_content_bottom'] = (bool)false;
+			}
+			$options['post_content_bottom_content'] = stripslashes($_POST['post_content_bottom_content']);
+			
+			//function
+			if ($_POST['function_feeds']) {
+				$options['function_feeds'] = (bool)true;
+			} else {
+				$options['function_feeds'] = (bool)false;
+			}
+			
+			//seo
+			if ($_POST['seo_open']) {
+				$options['seo_open'] = (bool)true;
+			} else {
+				$options['seo_open'] = (bool)false;
+			}
+			$options['seo_description'] = stripslashes($_POST['seo_description']);
+			$options['seo_keywords'] = stripslashes($_POST['seo_keywords']);
+			
+			
 			update_option('linove_options', $options);
 
 		} else {
@@ -255,7 +296,7 @@ class linoveOptions {
 						</label>
 						<br />
 						<label>
-							<textarea name="notice_content" id="notice_content" cols="50" rows="10" style="width:98%;font-size:12px;" class="code"><?php echo($options['notice_content']); ?></textarea>
+							<textarea name="notice_content" id="notice_content" cols="50" rows="3" style="width:98%;font-size:12px;" class="code"><?php echo($options['notice_content']); ?></textarea>
 						</label>
 						<!-- notice END -->
 					</td>
@@ -290,7 +331,7 @@ class linoveOptions {
 						</label>
 						<br/>
 						<label>
-							<textarea name="banner_content" id="banner_content" cols="50" rows="10" style="width:98%;font-size:12px;" class="code"><?php echo($options['banner_content']); ?></textarea>
+							<textarea name="banner_content" id="banner_content" cols="50" rows="3" style="width:98%;font-size:12px;" class="code"><?php echo($options['banner_content']); ?></textarea>
 						</label>
 						<!-- banner END -->
 					</td>
@@ -331,7 +372,7 @@ class linoveOptions {
 						 <input type="text" name="showcase_title" id="showcase_title" class="code" size="40" value="<?php echo($options['showcase_title']); ?>" />
 						<br/>
 						<label>
-							<textarea name="showcase_content" id="showcase_content" cols="50" rows="10" style="width:98%;font-size:12px;" class="code"><?php echo($options['showcase_content']); ?></textarea>
+							<textarea name="showcase_content" id="showcase_content" cols="50" rows="3" style="width:98%;font-size:12px;" class="code"><?php echo($options['showcase_content']); ?></textarea>
 						</label>
 						<!-- showcase END -->
 					</td>
@@ -435,7 +476,91 @@ class linoveOptions {
 							 <?php _e('Add web analytics code to your site. (e.g. Google Analytics, Yahoo! Web Analytics, ...)', 'linove'); ?>
 						</label>
 						<label>
-							<textarea name="analytics_content" cols="50" rows="10" id="analytics_content" class="code" style="width:98%;font-size:12px;"><?php echo($options['analytics_content']); ?></textarea>
+							<textarea name="analytics_content" cols="50" rows="2" id="analytics_content" class="code" style="width:98%;font-size:12px;"><?php echo($options['analytics_content']); ?></textarea>
+						</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="form-table">
+			<tbody>
+				<tr valign="top">
+					<th scope="row">
+						文章开始前追加代码
+						<br/>
+						<small style="font-weight:normal;"><?php _e('HTML enabled', 'linove'); ?></small>
+					</th>
+					<td>
+						<label>
+							<input name="post_content_top" type="checkbox" value="checkbox" <?php if($options['post_content_top']) echo "checked='checked'"; ?> />
+							代码将前追到每篇文章内容开始之前
+						</label>
+						<label>
+							<textarea name="post_content_top_content" cols="50" rows="2" id="post_content_top_content" class="code" style="width:98%;font-size:12px;"><?php echo($options['post_content_top_content']); ?></textarea>
+						</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="form-table">
+			<tbody>
+				<tr valign="top">
+					<th scope="row">
+						文章结束后追加代码
+						<br/>
+						<small style="font-weight:normal;"><?php _e('HTML enabled', 'linove'); ?></small>
+					</th>
+					<td>
+						<label>
+							<input name="post_content_bottom" type="checkbox" value="checkbox" <?php if($options['post_content_bottom']) echo "checked='checked'"; ?> />
+							代码将追加到每篇文章内容结束之后
+						</label>
+						<label>
+							<textarea name="post_content_bottom_content" cols="50" rows="2" id="post_content_bottom_content" class="code" style="width:98%;font-size:12px;"><?php echo($options['post_content_bottom_content']); ?></textarea>
+						</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+		<table class="form-table">
+			<tbody>
+				<tr valign="top">
+					<th scope="row">
+						seo_description
+					</th>
+					<td>
+						<label>
+							<textarea name="seo_description" cols="50" rows="2" id="seo_description" class="code" style="width:98%;font-size:12px;"><?php echo($options['seo_description']); ?></textarea>
+						</label>
+					</td>
+				</tr>
+				<tr valign="top">
+					<th scope="row">
+						seo_keywords
+					</th>
+					<td>
+						<label>
+							<textarea name="seo_keywords" cols="50" rows="2" id="seo_keywords" class="code" style="width:98%;font-size:12px;"><?php echo($options['seo_keywords']); ?></textarea>
+						</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		<table class="form-table">
+			<tbody>
+				<tr valign="top">
+					<th scope="row">
+						功能开关
+					</th>
+					<td>
+						<label>
+							<input name="function_feeds" type="checkbox" value="checkbox" <?php if($options['function_feeds']) echo "checked='checked'"; ?> />
+							是否开启rss分享
+							<input name="seo_open" type="checkbox" value="checkbox" <?php if($options['seo_open']) echo "checked='checked'"; ?> />
+							是否支持第三方seo插件（此功能将不显示title,keywords,description,由第三方生成）
 						</label>
 					</td>
 				</tr>
@@ -445,29 +570,6 @@ class linoveOptions {
 		<p class="submit">
 			<input class="button-primary" type="submit" name="linove_save" value="<?php _e('Save Changes', 'linove'); ?>" />
 		</p>
-	</div>
-</form>
-
-<!-- donation -->
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-	<div class="wrap" style="background:#E3E3E3; margin-bottom:1em;">
-
-		<table class="form-table">
-			<tbody>
-				<tr valign="top">
-					<th scope="row">Donation</th>
-					<td>
-						If you find my work useful and you want to encourage the development of more free resources, you can do it by donating...
-						<br />
-						<input type="hidden" name="cmd" value="_s-xclick" />
-						<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
-						<input style="border:none;" type="image" src="https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif" name="submit" alt="" />
-						<img alt="" src="https://www.paypal.com/zh_XC/i/scr/pixel.gif" />
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
 	</div>
 </form>
 
@@ -615,5 +717,22 @@ echo ($paged < $pages && $showitems < $pages) ? "<a href='".get_pagenum_link($ne
 echo ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) ? "<a href='".get_pagenum_link($pages)."'>最后</a>":"";   
 echo "</div>\n";   
 }   
-}    
+} 
+
+function km_tree(){
+	$args=array(
+		'orderby' => 'name',
+	  	'order' => 'ASC'
+	  	);
+	$result = array();  
+	$categories = get_categories($args);	
+	foreach($categories as $category) {
+		$node = array();
+	  	$node['id'] = $category->term_id;  
+	    $node['text'] =$category->name;  
+	    //$node['state'] ='closed';
+	    array_push($result,$node); 
+	   }
+	echo json_encode($result); 
+}   
 ?>

@@ -17,7 +17,10 @@
 
 <!-- sidebar north START -->
 <div id="northsidebar" class="sidebar">
-
+	<?php 
+		$options = get_option('linove_options');
+		if ($options['function_feeds']) {
+	?>
 	<!-- feeds -->
 	<div class="widget widget_feeds">
 		<div class="content">
@@ -48,6 +51,9 @@
 			<div class="fixed"></div>
 		</div>
 	</div>
+	<?php 
+		}
+	?>
 
 	<!-- showcase -->
 	<?php if( $options['showcase_content'] && (
