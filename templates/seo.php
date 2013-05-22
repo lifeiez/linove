@@ -27,7 +27,7 @@
 <?php } ?><?php } ?>
 <?php
 	$options = get_option('linove_options');
-	if (!$options['seo_open']) {
+	if ($options['function_seo']) {
 ?>
 	<?php
 if (!function_exists('utf8Substr')) {

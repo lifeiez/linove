@@ -595,48 +595,29 @@ textarea {
 #sidebar li {
 	font-size:14px;
 }
-#centersidebar, 
-#northsidebar .widget, 
-#southsidebar .widget {
+#sidebartop .widget, 
+#sidebarfollow .widget {
 	background:url(../img/widgetsep.png) bottom no-repeat;
 	padding:10px 10px 10px;
 }
-#centersidebar {
-	padding-bottom:6px;
-}
-#northsidebar, 
-#southsidebar {
+
+#sidebartop, 
+#sidebarfollow {
 	font-size:95%;
 }
-#northsidebar .widget h2, 
-#southsidebar .widget h2 {
+#sidebarfollow {
+	width: 300px;
+}
+#sidebartop .widget h2, 
+#sidebarfollow .widget h2 {
 	margin-bottom:10px;
 }
-#northsidebar .widget .content p, 
-#southsidebar .widget .content p {
+#sidebartop .widget .content p, 
+#sidebarfollow .widget .content p {
 	margin-bottom:10px;
 }
-#westsidebar {
-	width:144px;
-	float:left;
-	padding-right:1px;
-	font-size:95%;
-	overflow:hidden;
-}
-#eastsidebar {
-	width:125px;
-	float:right;
-	font-size:95%;
-	overflow:hidden;
-}
-#westsidebar h3, 
-#eastsidebar h3 {
-	margin-bottom:5px;
-}
-#westsidebar .widget, 
-#eastsidebar .widget {
-	margin-bottom:15px;
-}
+
+
 #sidebar .widget_feeds {
 	padding:5px 15px 15px;
 }

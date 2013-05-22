@@ -17,41 +17,24 @@
 		$feed = get_bloginfo('rss2_url');
 	}
 ?>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head profile="http://gmpg.org/xfn/11">
-	<?php include('includes/seo.php'); ?>
-	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all posts', 'linove'); ?>" href="<?php echo $feed; ?>" />
-	<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all comments', 'linove'); ?>" href="<?php bloginfo('comments_rss2_url'); ?>" />
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-	<!-- style START -->
-	<!-- default style -->
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.1.0.3.css" type="text/css" media="screen" />
-	<!-- for translations -->
-	<?php if (strtoupper(get_locale()) == 'ZH_CN' || strtoupper(get_locale()) == 'ZH_TW') : ?>
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/chinese.1.0.2.css" type="text/css" media="screen" />
-	<?php elseif (strtoupper(get_locale()) == 'HE_IL' || strtoupper(get_locale()) == 'FA_IR' || strtoupper(get_locale()) == 'UG_CN' || strtoupper(get_locale()) == 'CKB') : ?>
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/rtl.1.0.2.css" type="text/css" media="screen" />
-	<?php endif; ?>
-	<!--[if IE]>
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie.1.0.2.css" type="text/css" media="screen" />
-	<![endif]-->
-	<!-- style END -->
-	<?php wp_head(); ?>
+<?php include('templates/seo.php'); ?>
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all posts', 'linove'); ?>" href="<?php echo $feed; ?>" />
+<link rel="alternate" type="application/rss+xml" title="<?php _e('RSS 2.0 - all comments', 'linove'); ?>" href="<?php bloginfo('comments_rss2_url'); ?>" />
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.1.0.4.css" type="text/css" media="screen" />
+<?php wp_head(); ?>
 </head>
-
 <?php flush(); ?>
-
 <body>
-<!-- wrap START -->
-<div id="wrap">
-
-<!-- container START -->
-<div id="container" <?php if($options['nosidebar'] || $linove_nosidebar){echo 'class="one-column"';} ?> >
-
-<?php include('templates/header.php'); ?>
+	<!-- wrap START -->
+	<div id="wrap">
+		<!-- container START -->
+		<div id="container" <?php if($options['nosidebar'] || $linove_nosidebar){echo 'class="one-column"';} ?> >
+		<?php include('templates/header.php'); ?>
 
 <!-- content START -->
 <div id="content">

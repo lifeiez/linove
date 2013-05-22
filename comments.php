@@ -1,5 +1,3 @@
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/comment.1.0.2.js"></script>
-
 <?php if (!empty($post->post_password) && $_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) : ?>
 	<div class="errorbox">
 		<?php _e('Enter your password to view comments.', 'linove'); ?>

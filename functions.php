@@ -41,8 +41,10 @@ class linoveOptions {
 			$options['post_content_bottom_content'] = '';
 			$options['seo_description'] = '';
 			$options['seo_keywords'] = '';
-			$options['seo_open'] = true;
+			$options['function_seo'] = true;
 			$options['function_feeds'] = true;
+			$options['function_related_articles'] = true;
+			$options['function_history_view'] = true;
 			update_option('linove_options', $options);
 		}
 		return $options;
@@ -195,18 +197,29 @@ class linoveOptions {
 			}
 			$options['post_content_bottom_content'] = stripslashes($_POST['post_content_bottom_content']);
 			
-			//function
+			//function feeds
 			if ($_POST['function_feeds']) {
 				$options['function_feeds'] = (bool)true;
 			} else {
 				$options['function_feeds'] = (bool)false;
 			}
-			
-			//seo
-			if ($_POST['seo_open']) {
-				$options['seo_open'] = (bool)true;
+			//无插件相关文章
+			if ($_POST['function_related_articles']) {
+				$options['function_related_articles'] = (bool)true;
 			} else {
-				$options['seo_open'] = (bool)false;
+				$options['function_related_articles'] = (bool)false;
+			}
+			//无插件历史记录
+			if ($_POST['function_history_view']) {
+				$options['function_history_view'] = (bool)true;
+			} else {
+				$options['function_history_view'] = (bool)false;
+			}
+			//seo
+			if ($_POST['function_seo']) {
+				$options['function_seo'] = (bool)true;
+			} else {
+				$options['function_seo'] = (bool)false;
 			}
 			$options['seo_description'] = stripslashes($_POST['seo_description']);
 			$options['seo_keywords'] = stripslashes($_POST['seo_keywords']);
@@ -559,8 +572,12 @@ class linoveOptions {
 						<label>
 							<input name="function_feeds" type="checkbox" value="checkbox" <?php if($options['function_feeds']) echo "checked='checked'"; ?> />
 							是否开启rss分享
-							<input name="seo_open" type="checkbox" value="checkbox" <?php if($options['seo_open']) echo "checked='checked'"; ?> />
-							是否支持第三方seo插件（此功能将不显示title,keywords,description,由第三方生成）
+							<input name="function_seo" type="checkbox" value="checkbox" <?php if($options['function_seo']) echo "checked='checked'"; ?> />
+							开启无插件seo
+							<input name="function_related_articles" type="checkbox" value="checkbox" <?php if($options['function_related_articles']) echo "checked='checked'"; ?> />
+							开启无插件相关文章
+							<input name="function_history_view" type="checkbox" value="checkbox" <?php if($options['function_history_view']) echo "checked='checked'"; ?> />
+							开启无插件历史记录
 						</label>
 					</td>
 				</tr>
@@ -590,28 +607,14 @@ add_action ('init', 'theme_init');
 /** widgets */
 if( function_exists('register_sidebar') ) {
 	register_sidebar(array(
-		'name' => 'north_sidebar',
+		'name' => 'sidebar_top',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));
 	register_sidebar(array(
-		'name' => 'south_sidebar',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-	register_sidebar(array(
-		'name' => 'west_sidebar',
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-	register_sidebar(array(
-		'name' => 'east_sidebar',
+		'name' => 'sidebar_follow',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',

@@ -48,14 +48,27 @@
 
 <?php
 	wp_footer();
-
 	$options = get_option('linove_options');
 	if ($options['analytics']) {
 		echo($options['analytics_content']);
 	}
 ?>
 <!-- script START -->
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/bm.1.0.2.js"></script>
+<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/linove.1.0.4.js"></script>
+<script>
+linove_sidebarFollow('sidebarfollow',15);
+<?php 
+if ($options['function_history_view']) { 
+?>
+linove_viewHistory({
+    limit: 5,
+    storageKey: 'linove_viewHistory',
+    primaryKey: 'url',
+    addHistory:  <?php if ( is_single() ) { ?> true <?php }else{ ?>false<?php } ?>,
+    titleSplit: '|'
+});
+<?php }?>
+</script>
 <!-- script END -->
 </body>
 </html>

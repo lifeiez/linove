@@ -14,9 +14,9 @@
 
 <!-- sidebar START -->
 <div id="sidebar">
-
-<!-- sidebar north START -->
-<div id="northsidebar" class="sidebar">
+<!-- sidebar top START -->
+<div id="sidebartop" class="sidebar">
+	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar_top') ) : ?>
 	<?php 
 		$options = get_option('linove_options');
 		if ($options['function_feeds']) {
@@ -54,14 +54,14 @@
 	<?php 
 		}
 	?>
-
-	<!-- showcase -->
+	
 	<?php if( $options['showcase_content'] && (
 		($options['showcase_registered'] && $user_ID) || 
 		($options['showcase_commentator'] && !$user_ID && isset($_COOKIE['comment_author_'.COOKIEHASH])) || 
 		($options['showcase_visitor'] && !$user_ID && !isset($_COOKIE['comment_author_'.COOKIEHASH]))
 	) ) : ?>
-		<div class="widget">
+		<!-- showcase -->
+		<div class="widget widget_showcase">
 			<?php if($options['showcase_caption']) : ?>
 				<h3><?php if($options['showcase_title']){echo($options['showcase_title']);}else{_e('Showcase', 'linove');} ?></h3>
 			<?php endif; ?>
@@ -70,120 +70,104 @@
 			</div>
 		</div>
 	<?php endif; ?>
-
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('north_sidebar') ) : ?>
-
-	<!-- posts -->
-	<?php
-		if (is_single()) {
-			$posts_widget_title = 'Recent Posts';
-		} else {
-			$posts_widget_title = 'Random Posts';
-		}
-	?>
-
-	<div class="widget">
-		<h3><?php echo $posts_widget_title; ?></h3>
-		<ul>
-			<?php
-				if (is_single()) {
-					$posts = get_posts('numberposts=10&orderby=post_date');
-				} else {
-					$posts = get_posts('numberposts=5&orderby=rand');
-				}
-				foreach($posts as $post) {
-					setup_postdata($post);
-					echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-				}
-				$post = $posts[0];
-			?>
-		</ul>
-	</div>
-
-	<!-- recent comments -->
+	
+	<!-- Recent Comments -->
 	<?php if( function_exists('wp_recentcomments') ) : ?>
 		<div class="widget">
-			<h3>Recent Comments</h3>
+			<h3>最近回复</h3>
 			<ul>
 				<?php wp_recentcomments('limit=5&length=16&post=false&smilies=true'); ?>
 			</ul>
 		</div>
 	<?php endif; ?>
-
-	<!-- tag cloud -->
+	<!-- Tag Cloud -->
 	<div id="tag_cloud" class="widget">
-		<h3>Tag Cloud</h3>
+		<h3>标签云</h3>
 		<?php wp_tag_cloud('smallest=8&largest=16'); ?>
 	</div>
-
-<?php endif; ?>
-</div>
-<!-- sidebar north END -->
-
-<div id="centersidebar">
-
-	<!-- sidebar east START -->
-	<div id="eastsidebar" class="sidebar">
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('east_sidebar') ) : ?>
-
-		<!-- categories -->
-		<div class="widget widget_categories">
-			<h3>Categories</h3>
-			<ul>
-				<?php wp_list_cats('sort_column=name&optioncount=0&depth=1'); ?>
-			</ul>
-		</div>
-
-	<?php endif; ?>
-	</div>
-	<!-- sidebar east END -->
-
-	<!-- sidebar west START -->
-	<div id="westsidebar" class="sidebar">
-	<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('west_sidebar') ) : ?>
-
-		<!-- blogroll -->
-		<div class="widget widget_links">
-			<h3>Blogroll</h3>
-			<ul>
-				<?php wp_list_bookmarks('title_li=&categorize=0'); ?>
-			</ul>
-		</div>
-
-	<?php endif; ?>
-	</div>
-	<!-- sidebar west END -->
-	<div class="fixed"></div>
-</div>
-
-<!-- sidebar south START -->
-<div id="southsidebar" class="sidebar">
-<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('south_sidebar') ) : ?>
-
-	<!-- archives -->
-	<div class="widget">
-		<h3>Archives</h3>
-		<?php if(function_exists('wp_easyarchives_widget')) : ?>
-			<?php wp_easyarchives_widget("mode=none&limit=6"); ?>
-		<?php else : ?>
-			<ul>
-				<?php wp_get_archives('type=monthly'); ?>
-			</ul>
-		<?php endif; ?>
-	</div>
-
-	<!-- meta -->
-	<div class="widget">
-		<h3>Meta</h3>
+	<!-- blogroll -->
+	<div class="widget widget_links">
+		<h3>Blogroll</h3>
 		<ul>
-			<?php wp_register(); ?>
-			<li><?php wp_loginout(); ?></li>
+			<?php wp_list_bookmarks('title_li=&categorize=0'); ?>
 		</ul>
 	</div>
-
-<?php endif; ?>
+	<?php endif; ?>
 </div>
-<!-- sidebar south END -->
+<!-- sidebar top END -->
+<!-- sidebar follow START -->
+<div id="sidebarfollow"  class="sidebar" >
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('sidebar_follow') ) : ?>
+<?php endif; ?>
+	<?php
+		if ($options['function_related_articles']) {
+			if (is_single()) {
+				$posts_widget_title = '相关文章';
+			} else {
+				$posts_widget_title = '随机文章';
+			}
+	?>
+	<div class="widget"  >
+		<h3><?php echo $posts_widget_title; ?></h3>
+		<ul>
+			<?php
+				if (is_single()) {
+global $post;
+$cats = wp_get_post_categories($post->ID);
+if ($cats) {
+    $args = array (
+        'category__in' => array (
+            $cats[0]
+   		     ),
+        'post__not_in' => array (
+            $post->ID
+        ),
+        'showposts' => 6,
+        'caller_get_posts' => 1
+    );
+    query_posts($args);
+
+    if (have_posts()) {
+        while (have_posts()) {
+            the_post();
+            update_post_caches($posts);
+?>
+  <li><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
+<?php		
+		}
+	} else {
+			echo '<li>暂无相关文章</li>';
+		}
+		wp_reset_query();
+	} else {
+			echo '<li>暂无相关文章</li>';
+		}
+				} else {
+					$posts = get_posts('numberposts=6&orderby=rand');
+					foreach($posts as $post) {
+					setup_postdata($post);
+					echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+					}
+				}
+				$post = $posts[0];
+			?>
+		</ul>
+	</div>
+	
+<?php
+		}
+	  ?>
+	<?php 
+	if ($options['function_history_view']) { 
+	?>
+	<div class="widget" id="linove_viewHistory" >
+		<h3>您刚刚看过</h3>
+	</div>
+	<?php 
+		} 
+	?>
+</div>
+<!-- sidebar follow END -->
 
 </div>
 <!-- sidebar END -->
